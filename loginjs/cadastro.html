@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const registrationForm = document.getElementById('registrationForm');
+
+      registrationForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const fullName = document.getElementById('fullName').value;
+        const address = document.getElementById('address').value;
+        const cep = document.getElementById('cep').value;
+        const password = document.getElementById('regPassword').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        // Verifica se a senha e a confirmação de senha coincidem
+        if (password !== confirmPassword) {
+          alert('A senha e a confirmação de senha não coincidem.');
+          return;
+        }
+
+        // Aqui você deve implementar a lógica de cadastro no backend
+        console.log('Informações do usuário:', { fullName, address, cep, password });
+      });
+    });
+  </script>
+</head>
+<body>
+  <form id="registrationForm">
+    <h2>Cadastro</h2>
+    <label for="fullName">Nome completo:</label>
+    <input type="text" id="fullName" required>
+
+    <label for="address">Endereço:</label>
+    <input type="text" id="address" required>
+
+    <label for="cep">CEP:</label>
+    <input type="text" id="cep" required>
+
+    <label for="regPassword">Senha:</label>
+    <input type="password" id="regPassword" required>
+
+    <label for="confirmPassword">Confirmação da senha:</label>
+    <input type="password" id="confirmPassword" required>
+
+    <button type="submit">Cadastrar</button>
+  </form>
+</body>
+</html>
